@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Hello from script" >> hello.txt
+echo "Hello from script" >> /tmp/result.txt
 
 METADATA_VALUE=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/envr -H "Metadata-Flavor: Google")
 

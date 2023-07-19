@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/povsister/scp"
 	"golang.org/x/crypto/ssh"
 	"google.golang.org/api/compute/v1"
 	"google.golang.org/api/option"
@@ -162,21 +163,25 @@ func sshIntoMachine() {
 	}
 	defer conn.Close()
 
-	// Execute a command on the remote machine
-	session, err := conn.NewSession()
-	if err != nil {
-		log.Fatalf("Failed to create SSH session: %v", err)
-	}
-	defer session.Close()
+	scpClient, err := scp.NewClientFromExistingSSH(conn, &scp.ClientOption{})
 
-	// Run a command on the remote machine
-	output, err := session.Output("cat /hello.txt")
+	file, err := os.CreateTemp("", "result-*.txt")
 	if err != nil {
-		log.Fatalf("Failed to run command on remote machine: %v", err)
+		fmt.Println("error")
+	}
+	defer os.Remove(file.Name())
+
+	fo := &scp.FileTransferOption{
+		Context:      context.TODO(),
+		Timeout:      5 * time.Minute,
+		PreserveProp: true,
+	}
+	err = scpClient.CopyFileFromRemote("/tmp/result.txt", file.Name(), fo)
+	if err != nil {
+		fmt.Println("NO file found")
 	}
 
-	fmt.Println("Command output:")
-	fmt.Println(string(output))
+	fmt.Println("/tmp/result.txt file found")
 }
 
 func getInstaceIP() string {

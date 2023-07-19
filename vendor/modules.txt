@@ -51,6 +51,9 @@ github.com/googleapis/gax-go/v2/apierror
 github.com/googleapis/gax-go/v2/apierror/internal/proto
 github.com/googleapis/gax-go/v2/callctx
 github.com/googleapis/gax-go/v2/internal
+# github.com/povsister/scp v0.0.0-20210427074412-33febfd9f13e
+## explicit; go 1.15
+github.com/povsister/scp
 # go.opencensus.io v0.24.0
 ## explicit; go 1.13
 go.opencensus.io

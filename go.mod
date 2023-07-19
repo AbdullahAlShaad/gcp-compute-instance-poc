@@ -3,6 +3,7 @@ module github.com/Shaad7/gcp-compute-instance-poc
 go 1.20
 
 require (
+	github.com/povsister/scp v0.0.0-20210427074412-33febfd9f13e
 	golang.org/x/crypto v0.11.0
 	google.golang.org/api v0.131.0
 )
