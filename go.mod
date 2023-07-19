@@ -3,7 +3,7 @@ module github.com/Shaad7/gcp-compute-instance-poc
 go 1.20
 
 require (
-	golang.org/x/oauth2 v0.10.0
+	golang.org/x/crypto v0.11.0
 	google.golang.org/api v0.131.0
 )
 
@@ -17,8 +17,8 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.2.5 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	golang.org/x/crypto v0.11.0 // indirect
 	golang.org/x/net v0.12.0 // indirect
+	golang.org/x/oauth2 v0.10.0 // indirect
 	golang.org/x/sys v0.10.0 // indirect
 	golang.org/x/text v0.11.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
